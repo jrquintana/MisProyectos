@@ -2,12 +2,14 @@ package sv.edu.ues.occ.ingenieria.prn335_2024.cine.entity;
 
 import jakarta.persistence.*;
 
+import java.io.Serializable;
+
 @Entity
 @Table(name = "asiento_caracteristica", schema = "public")
-public class AsientoCaracteristica {
+public class AsientoCaracteristica implements Serializable {
     @Id
     @Column(name = "id_asiento_caracteristica", nullable = false)
-    private Long id;
+    private Long idAsientoCaracteristica;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_asiento")
@@ -21,12 +23,12 @@ public class AsientoCaracteristica {
     @Column(name = "valor")
     private String valor;
 
-    public Long getId() {
-        return id;
+    public Long getIdAsientoCaracteristica() {
+        return idAsientoCaracteristica;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setIdAsientoCaracteristica(Long id) {
+        this.idAsientoCaracteristica = id;
     }
 
     public Asiento getIdAsiento() {
