@@ -2,12 +2,14 @@ package sv.edu.ues.occ.ingenieria.prn335_2024.cine.entity;
 
 import jakarta.persistence.*;
 
+import java.io.Serializable;
+
 @Entity
 @Table(name = "pelicula_caracteristica", schema = "public")
-public class PeliculaCaracteristica {
+public class PeliculaCaracteristica implements Serializable {
     @Id
     @Column(name = "id_pelicula_caracteristica", nullable = false)
-    private Long id;
+    private Long idPeliculaCaracteristica;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_tipo_pelicula")
@@ -21,12 +23,12 @@ public class PeliculaCaracteristica {
     @Column(name = "valor")
     private String valor;
 
-    public Long getId() {
-        return id;
+    public Long getIdPeliculaCaracteristica() {
+        return idPeliculaCaracteristica;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setIdPeliculaCaracteristica(Long id) {
+        this.idPeliculaCaracteristica = id;
     }
 
     public TipoPelicula getIdTipoPelicula() {

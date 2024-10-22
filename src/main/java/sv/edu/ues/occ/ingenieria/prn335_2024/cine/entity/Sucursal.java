@@ -3,12 +3,14 @@ package sv.edu.ues.occ.ingenieria.prn335_2024.cine.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 
+import java.io.Serializable;
+
 @Entity
 @Table(name = "sucursal", schema = "public")
-public class Sucursal {
+public class Sucursal implements Serializable {
     @Id
     @Column(name = "id_sucursal", nullable = false)
-    private Integer id;
+    private Integer idSucursal;
 
     @Size(max = 155)
     @Column(name = "nombre", length = 155)
@@ -27,12 +29,12 @@ public class Sucursal {
     @Column(name = "activo")
     private Boolean activo;
 
-    public Integer getId() {
-        return id;
+    public Integer getIdSucursal() {
+        return idSucursal;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdSucursal(Integer id) {
+        this.idSucursal = id;
     }
 
     public String getNombre() {

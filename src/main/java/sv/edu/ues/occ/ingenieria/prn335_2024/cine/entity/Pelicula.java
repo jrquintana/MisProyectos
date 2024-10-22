@@ -3,12 +3,14 @@ package sv.edu.ues.occ.ingenieria.prn335_2024.cine.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 
+import java.io.Serializable;
+
 @Entity
 @Table(name = "pelicula", schema = "public")
-public class Pelicula {
+public class Pelicula implements Serializable {
     @Id
     @Column(name = "id_pelicula", nullable = false)
-    private Long id;
+    private Long idPelicula;
 
     @Size(max = 255)
     @Column(name = "nombre")
@@ -18,12 +20,12 @@ public class Pelicula {
     @Column(name = "sinopsis")
     private String sinopsis;
 
-    public Long getId() {
-        return id;
+    public Long getIdPelicula() {
+        return idPelicula;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setIdPelicula(Long id) {
+        this.idPelicula = id;
     }
 
     public String getNombre() {

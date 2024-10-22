@@ -3,12 +3,14 @@ package sv.edu.ues.occ.ingenieria.prn335_2024.cine.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 
+import java.io.Serializable;
+
 @Entity
 @Table(name = "reserva_detalle", schema = "public")
-public class ReservaDetalle {
+public class ReservaDetalle implements Serializable {
     @Id
     @Column(name = "id_reserva_detalle", nullable = false)
-    private Long id;
+    private Long idReservaDetalle;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_reserva")
@@ -22,12 +24,12 @@ public class ReservaDetalle {
     @Column(name = "estado", length = 155)
     private String estado;
 
-    public Long getId() {
-        return id;
+    public Long getIdReservaDetalle() {
+        return idReservaDetalle;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setIdReservaDetalle(Long id) {
+        this.idReservaDetalle = id;
     }
 
     public Reserva getIdReserva() {

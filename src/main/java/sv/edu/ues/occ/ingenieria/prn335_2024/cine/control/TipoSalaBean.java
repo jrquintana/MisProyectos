@@ -7,16 +7,20 @@ import jakarta.persistence.PersistenceContext;
 import sv.edu.ues.occ.ingenieria.prn335_2024.cine.entity.TipoSala;
 
 import java.io.Serializable;
-import java.util.List;
 
 @Stateless
 @LocalBean
 
-public class TipoSalaBean implements Serializable {
+public class TipoSalaBean extends AbstractDataPersist<TipoSala> implements Serializable {
     @PersistenceContext(unitName = "CinePU")
     EntityManager em;
-
-    public TipoSala findByIde(final Integer idTipoSala){
-       return em.find(TipoSala.class, idTipoSala);
+    public TipoSalaBean() {
+        super(TipoSala.class);
     }
+
+    @Override
+    public EntityManager getEntityManager() {
+        return em;
+    }
+
 }

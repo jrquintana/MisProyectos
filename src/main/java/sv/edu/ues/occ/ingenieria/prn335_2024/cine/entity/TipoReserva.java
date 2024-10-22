@@ -3,12 +3,14 @@ package sv.edu.ues.occ.ingenieria.prn335_2024.cine.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 
+import java.io.Serializable;
+
 @Entity
 @Table(name = "tipo_reserva", schema = "public")
-public class TipoReserva {
+public class TipoReserva implements Serializable {
     @Id
     @Column(name = "id_tipo_reserva", nullable = false)
-    private Integer id;
+    private Integer idTipoReserva;
 
     @Size(max = 155)
     @Column(name = "nombre", length = 155)
@@ -21,12 +23,19 @@ public class TipoReserva {
     @Column(name = "comentarios")
     private String comentarios;
 
-    public Integer getId() {
-        return id;
+    public TipoReserva(Integer idTipoReserva) {
+        this.idTipoReserva = idTipoReserva;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public TipoReserva() {
+    }
+
+    public Integer getIdTipoReserva() {
+        return idTipoReserva;
+    }
+
+    public void setIdTipoReserva(Integer id) {
+        this.idTipoReserva = id;
     }
 
     public String getNombre() {

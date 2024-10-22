@@ -2,14 +2,15 @@ package sv.edu.ues.occ.ingenieria.prn335_2024.cine.entity;
 
 import jakarta.persistence.*;
 
+import java.io.Serializable;
 import java.time.OffsetDateTime;
 
 @Entity
 @Table(name = "pago", schema = "public")
-public class Pago {
+public class Pago implements Serializable {
     @Id
     @Column(name = "id_pago", nullable = false)
-    private Long id;
+    private Long idPago;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_factura")
@@ -22,12 +23,12 @@ public class Pago {
     @Column(name = "fecha")
     private OffsetDateTime fecha;
 
-    public Long getId() {
-        return id;
+    public Long getIdPago() {
+        return idPago;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setIdPago(Long id) {
+        this.idPago = id;
     }
 
     public Factura getIdFactura() {

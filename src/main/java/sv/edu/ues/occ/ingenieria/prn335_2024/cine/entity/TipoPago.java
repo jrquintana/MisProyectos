@@ -6,12 +6,14 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Size;
 
+import java.io.Serializable;
+
 @Entity
 @Table(name = "tipo_pago", schema = "public")
-public class TipoPago {
+public class TipoPago implements Serializable {
     @Id
     @Column(name = "id_tipo_pago", nullable = false)
-    private Integer id;
+    private Integer idTipoPago;
 
     @Size(max = 155)
     @Column(name = "nombre", length = 155)
@@ -20,12 +22,12 @@ public class TipoPago {
     @Column(name = "activo")
     private Boolean activo;
 
-    public Integer getId() {
-        return id;
+    public Integer getIdTipoPago() {
+        return idTipoPago;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdTipoPago(Integer id) {
+        this.idTipoPago = id;
     }
 
     public String getNombre() {

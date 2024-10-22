@@ -2,14 +2,15 @@ package sv.edu.ues.occ.ingenieria.prn335_2024.cine.entity;
 
 import jakarta.persistence.*;
 
+import java.io.Serializable;
 import java.time.OffsetDateTime;
 
 @Entity
 @Table(name = "programacion", schema = "public")
-public class Programacion {
+public class Programacion implements Serializable {
     @Id
     @Column(name = "id_programacion", nullable = false)
-    private Long id;
+    private Long idProgramacion;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_sala")
@@ -29,12 +30,12 @@ public class Programacion {
     @Column(name = "comentarios")
     private String comentarios;
 
-    public Long getId() {
-        return id;
+    public Long getIdProgramacion() {
+        return idProgramacion;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setIdProgramacion(Long id) {
+        this.idProgramacion = id;
     }
 
     public Sala getIdSala() {

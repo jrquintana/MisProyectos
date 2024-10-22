@@ -12,7 +12,7 @@ import sv.edu.ues.occ.ingenieria.prn335_2024.cine.entity.TipoSala;
 public class HelloServlet extends HttpServlet {
     private String message;
     @Inject
-    TipoSalaBean tsBean;
+     TipoSalaBean tsBean;
 
     public void init() {
         message = "Hello World!";
@@ -23,7 +23,7 @@ public class HelloServlet extends HttpServlet {
 
         // Hello
         PrintWriter out = response.getWriter();
-        TipoSala noExiste =tsBean.findByIde(143);
+        TipoSala noExiste = tsBean.findById(143);
         out.println("<html><body>");
         out.println("<h1>" + message + "</h1>");
         out.println("</body></html>");
